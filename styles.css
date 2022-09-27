@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('img/woodplank.png');
+}
+
+.header {
+    background-image: url(img/sprucelog.png);
+    height: 128px;
+    box-shadow: 0px 10px 50px 5px;
+}
