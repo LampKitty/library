@@ -1,4 +1,5 @@
 const bookShelf = document.querySelector('.bookshelf');
+const bookButton = document.querySelector('.add-book');
 const styleProperties = 'background-image: url(\'img/bookshelf.png\'); \
 background-size: 250px; \
 box-shadow: 0px 0px 25px 3px; \
@@ -38,6 +39,9 @@ addBookToLibrary('Hobbit', 'Tolkien', '256');
 loopBook(mylibrary);
 console.log(mylibrary);
 
+bookButton.addEventListener('click', function(){
+    bookShelf.classList.add('active');
+})
 
 
 

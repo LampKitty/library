@@ -45,11 +45,16 @@ button:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    position: relative;
     background-image: url('img/woodplank.png');
+    position: relative;
+}
+.overlay {
+    visibility: hidden;
+    position: absolute;
 }
 
-.overlay {
+.active .overlay {
+    visibility:visible;
     position: absolute;
     height: 100%;
     width: 100%;
@@ -59,7 +64,7 @@ button:hover {
     align-items: center;
 }
 
-.popup {
+.active .popup {
     background-color: #fff;
     height: 540px;
     width: 438px;
@@ -75,13 +80,13 @@ button:hover {
     font-size: 1.2rem;
 }
 
-.input {
+.active .input {
     display: flex;
     gap: 5px;
     margin-top: 60px;
 }
 
-.input input {
+.active .input input {
     font-family: 'Minecraftia';
     background-color: transparent;
     border: 0;
