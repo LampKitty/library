@@ -1,13 +1,11 @@
+const form = document.querySelector('#submit');
 const bookShelf = document.querySelector('.bookshelf');
 const bookButton = document.querySelector('.add-book');
-const styleProperties = 'background-image: url(\'img/bookshelf.png\'); \
-background-size: 250px; \
-box-shadow: 0px 0px 25px 3px; \
-flex: initial;\
-margin: 120px;\
-height: 250px; \
-width: 250px;';
+const title = document.querySelector('#title');
+const author = document.querySelector('#author');
+const pages = document.querySelector('#pages');
 
+// store books
 let mylibrary = [];
 
 function Book(title, author, pages) {
@@ -16,32 +14,40 @@ function Book(title, author, pages) {
     this.pages = pages;
 }
 
-function loopBook(arr) {
-    for(book in arr) {
-        const content = document.createElement('div');
-        content.setAttribute('style', styleProperties);
-        bookShelf.appendChild(content);
-        
-        console.log('book')
-    }
+function displayBook(arr) {
+    const book = document.createElement('div');
+    const remove = document.createElement('div');
+    const coverTitle = document.createElement('div');
+    const coverAuthor = document.createElement('div');
+    const coverPages = document.createElement('div');
+    coverTitle.textContent = mylibrary[mylibrary.length-1]['title'];
+    coverAuthor.textContent = mylibrary[mylibrary.length-1]['author'];
+    coverPages.textContent = mylibrary[mylibrary.length-1]['pages'];
+    book.appendChild(coverTitle);
+    book.appendChild(coverAuthor);
+    book.appendChild(coverPages);
+    book.appendChild(document.createElement('div'));
+    bookShelf.appendChild(book);
+    book.classList.add('book')
 }
 
 function addBookToLibrary(title, author, pages) {
-        mylibrary.push(new Book(title, author, pages))
+    mylibrary.push(new Book(title, author, pages));
 }
 
-addBookToLibrary('Hobbit', 'Tolkien', '256');
-addBookToLibrary('Hobbit', 'Tolkien', '256');
-addBookToLibrary('Hobbit', 'Tolkien', '256');
-addBookToLibrary('Hobbit', 'Tolkien', '256');
-
-
-loopBook(mylibrary);
-console.log(mylibrary);
-
-bookButton.addEventListener('click', function(){
+bookButton.addEventListener('click', function () {
     bookShelf.classList.add('active');
 })
+
+submit.addEventListener('click', function () {
+    addBookToLibrary(title.value, author.value, pages.value);
+    bookShelf.classList.remove('active');
+    console.log(mylibrary);
+    title.value = '', author.value = '', pages.value = '';
+    displayBook(mylibrary);
+})
+
+
 
 
 

@@ -13,7 +13,7 @@ body {
 .header {
     flex: initial;
     background-image: url(img/sprucelog.png);
-    height: 128px;
+    min-height: 128px;
     box-shadow: 0px 10px 50px 5px;
     display: flex;
     justify-content: center;
@@ -44,24 +44,25 @@ button:hover {
 .bookshelf {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     background-image: url('img/woodplank.png');
     position: relative;
+    flex: 5;
 }
+
 .overlay {
     visibility: hidden;
     position: absolute;
 }
 
 .active .overlay {
-    visibility:visible;
+    visibility: visible;
     position: absolute;
     height: 100%;
     width: 100%;
-    background-color: rgba(0,0,0,0.9);
+    background-color: rgba(0, 0, 0, 0.9);
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .active .popup {
@@ -71,13 +72,12 @@ button:hover {
     background: transparent;
     background-size: contain;
     background-image: url(img/book.png);
-    left: 50%;
-    top: 50%;
     padding: 50px;
     padding-top: 70px;
     font-family: 'Minecraftia';
     text-shadow: 2px 2px rgba(165, 165, 165, 0.667);
     font-size: 1.2rem;
+    margin-top: 100px;
 }
 
 .active .input {
@@ -86,7 +86,7 @@ button:hover {
     margin-top: 60px;
 }
 
-.active .input input {
+.active .popup input {
     font-family: 'Minecraftia';
     background-color: transparent;
     border: 0;
@@ -95,3 +95,41 @@ button:hover {
     width: 10rem;
     color: rgb(75, 75, 75);
 }
+
+.active .popup #submit {
+    width: 100%;
+    font-size: 1.6rem;
+    border: 0;
+    color: #f3f734;
+    text-shadow: 2px 2px rgba(97, 97, 97, 0.747);
+    font-family: 'Minecraftia';
+    background-color: transparent;
+}
+
+.active .popup #submit:hover {
+    color: #f5d000;
+}
+
+.book {
+    background-image: url('img/bookshelf.png');
+    background-size: 250px;
+    box-shadow: 0px 0px 25px 3px;
+    flex: initial;
+    margin: 120px;
+    height: 250px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book > * {
+    flex: 1;
+    color: #fff;
+    font-family: 'Minecraftia';
+    font-size: 1.4rem;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.747);
+    display: flex;
+    align-items: center;
+}
+
