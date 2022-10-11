@@ -78,6 +78,19 @@ button:hover {
     text-shadow: 2px 2px rgba(165, 165, 165, 0.667);
     font-size: 1.2rem;
     margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.active .popup .error {
+    /* visibility: hidden; */
+    color: rgb(230, 59, 59);
+    margin-top: 20px;
+    height: 30px;
+}
+
+.active .popup>:nth-child(2){
+    margin-top: 30px;
 }
 
 .active .input {
@@ -120,7 +133,6 @@ button:hover {
     width: 250px;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .book > * {
@@ -130,6 +142,20 @@ button:hover {
     font-size: 1.4rem;
     text-shadow: 2px 2px rgba(0, 0, 0, 0.747);
     display: flex;
+    justify-content: center;
     align-items: center;
+    border-radius: 5px;
+    border: 0;
 }
 
+.book :nth-child(4) {
+    background-color: rgb(255, 143, 143);
+}
+
+.book :nth-child(5) {
+    background-color: rgb(149, 163, 151);
+}
+
+.book :nth-child(4).active {
+    background-color: rgb(85, 253, 107);
+}
