@@ -83,7 +83,7 @@ button:hover {
 }
 
 .active .popup .error {
-    /* visibility: hidden; */
+    visibility: hidden;
     color: rgb(230, 59, 59);
     margin-top: 20px;
     height: 30px;
@@ -149,13 +149,13 @@ button:hover {
 }
 
 .book :nth-child(4) {
-    background-color: rgb(255, 143, 143);
+    background-color: rgb(248, 55, 55);
 }
 
 .book :nth-child(5) {
-    background-color: rgb(149, 163, 151);
+    background-color: rgb(122, 129, 123);
 }
 
 .book :nth-child(4).active {
-    background-color: rgb(85, 253, 107);
+    background-color: rgb(12, 212, 38);
 }

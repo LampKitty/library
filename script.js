@@ -1,6 +1,7 @@
 const bookShelf = document.querySelector('.bookshelf');
 const addBookButton = document.querySelector('.add-book');
 // Submit form
+const error = document.querySelector('.error');
 const title = document.querySelector('#title');
 const author = document.querySelector('#author');
 const pages = document.querySelector('#pages');
@@ -10,7 +11,7 @@ const submit = document.querySelector('#submit');
 // Store books
 let myLibrary = [];
 
-function Book(title, author, pages, isRead=false) {
+function Book(title, author, pages, isRead = false) {
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -44,14 +45,14 @@ function displayBook(arr) {
     removeButton.addEventListener('click', () => removeBook(removeButton, coverTitle));
 }
 
-function toggleRead (readButton, coverTitle) {
+function toggleRead(readButton, coverTitle) {
     this.readButton = readButton;
     let foundBook = myLibrary.find(e => e.title === coverTitle.textContent);
     isRead(readButton, foundBook);
 }
 
 function isRead(readButton, foundBook) {
-    if(readButton.classList.value === '') {
+    if (readButton.classList.value === '') {
         readButton.classList.add('active');
         foundBook.isRead = true;
         readButton.textContent = 'Read';
@@ -62,7 +63,7 @@ function isRead(readButton, foundBook) {
     }
 }
 
-function removeBook (removeButton, coverTitle) {
+function removeBook(removeButton, coverTitle) {
     this.removeButton = removeButton;
     this.book = removeButton.parentElement;
     this.bookParent = book.parentElement;
@@ -81,20 +82,19 @@ addBookButton.addEventListener('click', function () {
 })
 
 submit.addEventListener('click', function () {
-    bookCheck(title);
-    addBookToLibrary(title.value, author.value, pages.value);
-    bookShelf.classList.remove('active');
-    title.value = '', author.value = '', pages.value = '';
-    displayBook(myLibrary);
-})
-
-function bookCheck(title) {
-    if(myLibrary.find(e => e.title === title.value)) {
+    if (myLibrary.find(e => e.title === title.value)) {
+        error.setAttribute('style', 'visibility: visible')
     }
     else {
-        console.log('notfound')
+        addBookToLibrary(title.value, author.value, pages.value);
+        error.setAttribute('style', 'visibility: hidden') // hide error message
+        bookShelf.classList.remove('active');
+        title.value = '', author.value = '', pages.value = '';
+        displayBook(myLibrary);
     }
-}
+
+
+})
 
 
 
