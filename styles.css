@@ -55,6 +55,11 @@ button:hover {
     position: absolute;
 }
 
+.popup {
+    visibility: hidden;
+    position: absolute;
+}
+
 .active .overlay {
     visibility: visible;
     position: absolute;
@@ -66,6 +71,7 @@ button:hover {
 }
 
 .active .popup {
+    visibility: visible;
     background-color: #fff;
     height: 540px;
     width: 438px;
@@ -153,7 +159,7 @@ button:hover {
 }
 
 .book :nth-child(5) {
-    background-color: rgb(122, 129, 123);
+    background-color: rgb(99, 105, 100);
 }
 
 .book :nth-child(4).active {

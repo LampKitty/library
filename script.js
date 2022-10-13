@@ -1,12 +1,12 @@
 const bookShelf = document.querySelector('.bookshelf');
 const addBookButton = document.querySelector('.add-book');
+const overlay = document.querySelector('.bookshelf .overlay');
 // Submit form
 const error = document.querySelector('.error');
 const title = document.querySelector('#title');
 const author = document.querySelector('#author');
 const pages = document.querySelector('#pages');
 const submit = document.querySelector('#submit');
-// Book 
 
 // Store books
 let myLibrary = [];
@@ -87,19 +87,17 @@ submit.addEventListener('click', function () {
     }
     else {
         addBookToLibrary(title.value, author.value, pages.value);
-        error.setAttribute('style', 'visibility: hidden') // hide error message
         bookShelf.classList.remove('active');
         title.value = '', author.value = '', pages.value = '';
         displayBook(myLibrary);
     }
-
-
 })
 
-
-
-
-
+overlay.addEventListener('click', function() {
+    bookShelf.classList.remove('active');
+    error.setAttribute('style', 'visibility: hidden');
+    title.value = '', author.value = '', pages.value = '';
+})
 
 
 
